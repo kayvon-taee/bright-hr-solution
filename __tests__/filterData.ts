@@ -32,4 +32,31 @@ describe('filterData', () => {
             "size": 4
         }])
     })
+    it("filters also for folder name", () => {
+        // Given a selection
+        const selection = "Misc"
+        // When we filter the data
+        const filteredData = filterData(data, selection);
+        // Then assert the filtered data is as expected
+        expect(filteredData.length).toBe(1);
+        expect(filteredData).toStrictEqual([{
+            "type": "folder",
+            "name": "Misc",
+            "files":
+                [
+                    {
+                        "type": "doc",
+                        "name": "Christmas party",
+                        "added": "2017-12-01",
+                        "size": 6
+                    },
+                    {
+                        "type": "mov",
+                        "name": "Welcome to the company!",
+                        "added": "2015-04-24",
+                        "size": 7
+                    }
+                ]
+        }])
+    })
 })

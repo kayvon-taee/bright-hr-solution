@@ -5,11 +5,11 @@ const filterData = (data: DocumentInterface, fileName: string) => {
         return data
     }
     return data.flatMap(entry => {
-        if ("files" in entry) {
-            return entry.files.filter(file => file.name === fileName)
-        }
         if (entry.name === fileName) {
             return entry
+        }
+        if ("files" in entry) {
+            return entry.files.filter(file => file.name === fileName)
         }
         return []
     })
