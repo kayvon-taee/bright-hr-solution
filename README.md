@@ -21,9 +21,9 @@ There are two ways of running the tests.
 
 ## What would I do if I had more time?
 
-I was having issues with running component tests with cypress. Trying to fix them would result me overshooting the time limit. I would isolate my tests and have a better separation of cypress component and e2e testing.
-I would also like to add a file management feature, where the user can add, edit and remove the uploaded files. Adding the files should be done via modal and the user can simply drag and drop the file onto the interface.
-Finally, I would adjust the data structure to ensure all of them have unique IDs instead of relying on names.
-
-For now, I assumed that there will be no empty folders added, but with more time, I would make the property optional. Also, a future feature should accommodate greater nesting of folders and allow many sub folders to be visible.
-I would also replace the deprecated Grid with Grid v2.
+1. Fix component tests and separate out e2e/component tests. I was having issues with running component tests with cypress. Trying to fix them would result me overshooting the time limit.
+2. I would also like to add a file management feature, where the user can add, edit and remove the uploaded files. Adding the files should be done via modal and the user can simply drag and drop the file onto the interface.
+3. I would adjust the data structure to ensure all of them have unique IDs instead of relying on names.
+4. I assumed that there will be no empty folders added, but with more time, I would make the property optional. Also, a future feature should accommodate greater nesting of folders and allow many sub folders to be visible.
+5. I would also replace the deprecated Grid with Grid v2.
+6. Add aria labelling for screen reader users for accessibility and easier selection for cypress tests to avoid adding extra data tags
