@@ -25,4 +25,4 @@ I was having issues with running component tests with cypress. Trying to fix the
 I would also like to add a file management feature, where the user can add, edit and remove the uploaded files. Adding the files should be done via modal and the user can simply drag and drop the file onto the interface.
 Finally, I would adjust the data structure to ensure all of them have unique IDs instead of relying on names.
 
-For now, I assumed that there will be no empty folders added, but with more time, I would make the property optional.
+For now, I assumed that there will be no empty folders added, but with more time, I would make the property optional. Also, a future feature should accommodate greater nesting of folders and allow many sub folders to be visible.

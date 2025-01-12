@@ -18,4 +18,19 @@ describe("App tests", () => {
             })
         })
     })
+    it("displays correct content inside the folders", () => {
+        cy.fixture("mock").then((data : DocumentInterface) => {
+            // Given the folders
+            const nameListFolders = data.filter(entry => entry.type === "folder").map((entry) => entry.name)
+
+            // When we click on some dropdown arrow for each folder
+
+            // Assert they are render as desired
+            nameListFolders.forEach(name => {
+                cy.contains(name).should('be.visible')
+            })
+        })
+    })
+
+    it("allows filtering by filename at the top level")
 })
