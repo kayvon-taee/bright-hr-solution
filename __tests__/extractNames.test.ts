@@ -1,6 +1,7 @@
 import {expect, it, describe} from '@jest/globals';
 import {DocumentInterface} from "../utils/types/types";
-import mock from "../__mocks__/mock_data.json"
+import extractNames from "../src/utils/extractNames";
+import mock from "../__mocks__/mock";
 
 describe('ExtractNames', () => {
     it("extracts the names correctly", () => {

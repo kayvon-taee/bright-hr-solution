@@ -12,12 +12,14 @@ import {
     Typography
 } from "@mui/material";
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import extractNames from "./utils/extractNames.ts";
 
 function App() {
     const data = mock as DocumentInterface
+    const extractedNames = extractNames(data)
     return (
         <>
-            <Autocomplete options={data} sx={{ width: 300}} renderInput={(params) => <TextField {...params} label={"File name"} />} />
+            <Autocomplete options={extractedNames} sx={{ width: 300}} renderInput={(params) => <TextField {...params} label={"File name"} />} />
             {data.map((entry) => {
                 if ("files" in entry) {
                     return (
