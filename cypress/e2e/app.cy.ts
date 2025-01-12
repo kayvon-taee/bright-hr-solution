@@ -6,8 +6,10 @@ describe("App tests", () => {
         cy.visit("/")
     })
     it("renders correctly", () => {
-        // Assert that it has displayed the 5 top level entries
-        cy.get('[data-testid="paired-display]').should('have.length', 5)
+        // Assert that it has displayed the 7 entries
+        cy.get('[data-testid="paired-display"]').should('have.length', 7)
+        // Two accordions for the two folders
+        cy.get('[data-testid="folder-accordion"]').should('have.length', 2)
     })
     it("displays the correct content at the upper level", () => {
         // Assert that it shows correct name

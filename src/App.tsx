@@ -12,7 +12,7 @@ function App() {
             {data.map((entry) => {
                 if ("files" in entry) {
                     return (
-                        <Accordion>
+                        <Accordion data-testid={"folder-accordion"}>
                             <AccordionSummary
                                 expandIcon={<ExpandMoreIcon />}
                                 aria-controls="panel1-content"
