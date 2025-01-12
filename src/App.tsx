@@ -13,13 +13,21 @@ import {
 } from "@mui/material";
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import extractNames from "./utils/extractNames.ts";
+import {useEffect, useState} from "react";
 
 function App() {
     const data = mock as DocumentInterface
+    const [selectedOption, setSelectedOption] = useState('')
+    const [filteredData, setFilteredData] = useState(data);
     const extractedNames = extractNames(data)
+
+    // useEffect(() => {
+    //     data.filter()
+    // },[selectedOption])
+
     return (
         <>
-            <Autocomplete options={extractedNames} sx={{ width: 300}} renderInput={(params) => <TextField {...params} label={"File name"} />} />
+            <Autocomplete options={extractedNames} sx={{ width: 300}} renderInput={(params) => <TextField {...params} label={"File name"}  onChange={(e) => setSelectedOption(e.target.value)}/>} />
             {data.map((entry) => {
                 if ("files" in entry) {
                     return (
