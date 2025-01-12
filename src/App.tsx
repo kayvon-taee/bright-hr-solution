@@ -9,9 +9,9 @@ function App() {
         <>
             {data.map(entry => {
                 if ("files" in entry) {
-                    entry.files.map(file => renderFile(file));
+                   return entry.files.map(file => renderFile(file));
                 } else {
-                    renderFile(entry)
+                   return renderFile(entry)
                 }
             })}
         </>
