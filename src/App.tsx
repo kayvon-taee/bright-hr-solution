@@ -1,35 +1,26 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
-
+import mock from "../__mocks__/mock_data.json"
+import {DocumentInterface} from "../utils/types/types.ts";
+import PairedDisplay from "./components/pairedDisplay.tsx";
+import {Typography} from "@mui/material";
 function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    const data = mock as DocumentInterface
+    return (
+        <>
+            {data.map(entry => {
+                if (entry.type === "folder" && "files" in entry) {
+                    entry.files.map(file => (
+                        <PairedDisplay label={file.name} key={file.name}>
+                            <>
+                                <Typography data-testid="paired-display-date">{file.added}</Typography>
+                                <Typography data-testid="paired-display-date">{file.size} KB</Typography>
+                            </>
+                        </PairedDisplay>
+                    ))
+                }
+            })}
+        </>
+    )
 }
 
 export default App
