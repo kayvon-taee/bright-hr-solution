@@ -32,5 +32,29 @@ describe("App tests", () => {
         })
     })
 
-    it("allows filtering by filename at the top level")
+    it("allows filtering by filename at the top level", () => {
+
+    })
+    it("allows filtering by filename at the folder level", () => {
+
+    })
+    // Sorting should be both ways - ascending and descending
+    it("allows sorting by filename at the top level", () => {
+
+    })
+    it("allows sorting by date at the top level", () => {
+
+    })
+    it("allows sorting by size at the top level", () => {
+
+    })
+    it("allows sorting by filename at the folder level", () => {
+
+    })
+    it("allows sorting by date at the folder level", () => {
+
+    })
+    it("allows sorting by size at the folder level", () => {
+
+    })
 })
