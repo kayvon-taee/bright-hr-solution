@@ -17,13 +17,17 @@ There are two ways of running the tests.
 ![img.png](img.png)
 
 2. You can use the shell script to easily run the tests all at once. Note that I am using bash, so make sure the device you use can access the application dependencies and run bash scripts. Make sure to run this at the project root directory.
-`bash run_all_tests.sh`. You may need to reply with a 'y' prompt if you need to install the `wait-on` package.
+`bash run_all_tests.sh`. You may need to reply with a 'y' prompt if you need to install the `wait-on` package. Make sure you are not running the app yourself otherwise the tests will not run.
 
 ## What would I do if I had more time?
 
-1. Fix component tests and separate out e2e/component tests. I was having issues with running component tests with cypress. Trying to fix them would result me overshooting the time limit.
-2. I would also like to add a file management feature, where the user can add, edit and remove the uploaded files. Adding the files should be done via modal and the user can simply drag and drop the file onto the interface.
-3. I would adjust the data structure to ensure all of them have unique IDs instead of relying on names.
-4. I assumed that there will be no empty folders added, but with more time, I would make the property optional. Also, a future feature should accommodate greater nesting of folders and allow many sub folders to be visible.
-5. I would also replace the deprecated Grid with Grid v2.
-6. Add aria labelling for screen reader users for accessibility and easier selection for cypress tests to avoid adding extra data tags
+1. Add more comprehensive tests to cover the filtering. This includes design considerations on non-matching entries.
+2. Change the autocomplete to allow multiple selection. This would require me adding a prop for multiple=true.
+3. Fix component tests and separate out e2e/component tests. I was having issues with running component tests with cypress. Trying to fix them would result me overshooting the time limit.
+4. I would also like to add a file management feature, where the user can add, edit and remove the uploaded files. Adding the files should be done via modal and the user can simply drag and drop the file onto the interface.
+5. I assumed that there will be no empty folders added, but with more time, I would make the property optional. Also, a future feature should accommodate greater nesting of folders and allow many sub folders to be visible.
+6. I would also replace the deprecated Grid with Grid v2.
+7. Add aria labelling for screen reader users for accessibility and easier selection for cypress tests to avoid adding extra data tags
+8. Style it more nicely using centring and icons
+9. To implement sorting, I would have a button that you can click on. This opens a sidebar menu. It will have the filter functionality by name and date. Also, I would have the sort functions there as dropdown menus. There would also be a checkbox to allow users to reverse sort. I would have simple functions to apply sorting using the sort() function.
+   10. More ideally, I would enforce a MUI datagrid so it looks more like a proper file explorer as it comes with built-in sorting and filtering. With some styling, it would really good and can be extended to have adding/editing/removing files. [MUI datagrid](https://mui.com/x/react-data-grid/)
