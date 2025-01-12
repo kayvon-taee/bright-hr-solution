@@ -14,6 +14,7 @@ import {
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import extractNames from "./utils/extractNames.ts";
 import {useEffect, useState} from "react";
+import filterData from "./utils/filterData.ts";
 
 function App() {
     const data = mock as DocumentInterface
@@ -21,14 +22,20 @@ function App() {
     const [filteredData, setFilteredData] = useState(data);
     const extractedNames = extractNames(data)
 
-    // useEffect(() => {
-    //     data.filter()
-    // },[selectedOption])
+    useEffect(() => {
+        const newData = filterData(data, selectedOption)
+        setFilteredData(newData)
+    },[selectedOption])
 
     return (
         <>
-            <Autocomplete options={extractedNames} sx={{ width: 300}} renderInput={(params) => <TextField {...params} label={"File name"}  onChange={(event, newValue) => setSelectedOption(newValue || '')}/>} />
-            {data.map((entry) => {
+            <Autocomplete
+                options={extractedNames}
+                sx={{ width: 300 }}
+                renderInput={(params) => <TextField {...params} label={"File name"} />}
+                onChange={(event, newValue) => setSelectedOption(newValue || '')}
+            />
+            {filteredData.map((entry) => {
                 if ("files" in entry) {
                     return (
                         <Accordion data-testid={"folder-accordion"}>
