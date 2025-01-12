@@ -1,4 +1,4 @@
-import './App.css'
+
 import mock from "../__mocks__/mock_data.json"
 import {DocumentInterface} from "../utils/types/types.ts";
 import renderFile from "./renderFiles.tsx";
