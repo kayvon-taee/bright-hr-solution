@@ -15,6 +15,21 @@ jobs:
         with:
           node-version: 20
           cache: 'npm'
+      - name: Cypress run
+        uses: cypress-io/github-action@v6
+        with:
+          build: npm run build
+          start: npm start
+  jest-run:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: setup node module cache
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
       # Install npm dependencies, cache them correctly
       # and run all Cypress tests
       - name: Cypress run
@@ -22,20 +37,3 @@ jobs:
         with:
           build: npm run build
           start: npm start
-  jest-run:
-  runs-on: ubuntu-24.04
-  steps:
-    - name: Checkout
-      uses: actions/checkout@v4
-    - name: setup node module cache
-      uses: actions/setup-node@v4
-      with:
-        node-version: 20
-        cache: 'npm'
-    # Install npm dependencies, cache them correctly
-    # and run all Cypress tests
-    - name: Cypress run
-      uses: cypress-io/github-action@v6
-      with:
-        build: npm run build
-        start: npm start
