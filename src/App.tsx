@@ -15,8 +15,7 @@ function App() {
                         <Accordion data-testid={"folder-accordion"}>
                             <AccordionSummary
                                 expandIcon={<ExpandMoreIcon />}
-                                aria-controls="panel1-content"
-                                id="panel1-header"
+                                data-testid={"folder-accordion-summary"}
                             >
                                 <Typography component="span">{entry.name}</Typography>
                             </AccordionSummary>

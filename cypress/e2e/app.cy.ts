@@ -24,9 +24,9 @@ describe("App tests", () => {
         cy.fixture("mock").then((data : DocumentInterface) => {
             // Given the folders
             const nameListFolders = data.filter(entry => entry.type === "folder").map((entry) => entry.name)
-
             // When we click on some dropdown arrow for each folder
-
+            cy.get('[data-testid="folder-accordion-summary"]').eq(0).click()
+            cy.get('[data-testid="folder-accordion-summary"]').eq(1).click()
             // Assert they are render as desired
             nameListFolders.forEach(name => {
                 cy.contains(name).should('be.visible')
