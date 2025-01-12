@@ -2,13 +2,22 @@
 import mock from "../__mocks__/mock_data.json"
 import {DocumentInterface} from "../utils/types/types.ts";
 import renderFile from "./renderFiles.tsx";
-import {Accordion, AccordionDetails, AccordionSummary, Box, Typography} from "@mui/material";
+import {
+    Accordion,
+    AccordionDetails,
+    AccordionSummary,
+    Autocomplete,
+    Box,
+    TextField,
+    Typography
+} from "@mui/material";
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 function App() {
     const data = mock as DocumentInterface
     return (
         <>
+            <Autocomplete options={data} sx={{ width: 300}} renderInput={(params) => <TextField {...params} label={"File name"} />} />
             {data.map((entry) => {
                 if ("files" in entry) {
                     return (
