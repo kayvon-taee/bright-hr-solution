@@ -27,7 +27,7 @@ function App() {
 
     return (
         <>
-            <Autocomplete options={extractedNames} sx={{ width: 300}} renderInput={(params) => <TextField {...params} label={"File name"}  onChange={(e) => setSelectedOption(e.target.value)}/>} />
+            <Autocomplete options={extractedNames} sx={{ width: 300}} renderInput={(params) => <TextField {...params} label={"File name"}  onChange={(event, newValue) => setSelectedOption(newValue || '')}/>} />
             {data.map((entry) => {
                 if ("files" in entry) {
                     return (

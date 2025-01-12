@@ -1,11 +1,14 @@
 import {expect, it, describe} from '@jest/globals';
 import mock from "../__mocks__/mock";
+import filterData from "../src/utils/filterData";
+import {DocumentInterface} from "../utils/types/types";
 describe('filterData', () => {
+    const data = mock as DocumentInterface
     it("filters at the top level", () => {
         // Given a selection
         const selection = "Employee Handbook"
         // When we filter the data
-        const filteredData = filterData(mock, selection);
+        const filteredData = filterData(data, selection);
         // Then assert the filtered data is as expected
         expect(filteredData.length).toBe(1);
         expect(filteredData).toStrictEqual([{
@@ -19,7 +22,7 @@ describe('filterData', () => {
         // Given a selection
         const selection = "Fuel allowances"
         // When we filter the data
-        const filteredData = filterData(mock, selection);
+        const filteredData = filterData(data, selection);
         // Then assert the filtered data is as expected
         expect(filteredData.length).toBe(1);
         expect(filteredData).toStrictEqual([{
