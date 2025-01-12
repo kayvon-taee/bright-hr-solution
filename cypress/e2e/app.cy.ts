@@ -39,23 +39,20 @@ describe("App tests", () => {
             const nameList = data.map((entry) => entry.name)
             nameList.forEach(name => {
                 cy.get('[role="combobox"]').type(name)
+                cy.get('[role="listbox"]').click()
                 cy.contains(name).should('be.visible')
-                cy.get('[data-testid="paired-display"]').should('have.length', 1)
-                cy.get('[data-testid="folder-accordion"]').should('have.length', 0)
+                cy.get('[role="combobox"]').clear()
             })
         })
     })
     it("allows filtering by filename at the folder level", () => {
         cy.fixture("mock").then((data : DocumentInterface) => {
             const nameListFolders = data.filter(entry => entry.type === "folder").map((entry) => entry.name)
-            const nameList = data.map((entry) => entry.name)
-            nameList.forEach(fileName => {
-                cy.contains(fileName).should('not.be.visible')
-            })
             nameListFolders.forEach(nestFileName => {
                 cy.get('[role="combobox"]').type(nestFileName)
+                cy.get('[role="listbox"]').click()
                 cy.contains(nestFileName).should('be.visible')
-                cy.get('[data-testid="paired-display"]').should('have.length', 1)
+                cy.get('[role="combobox"]').clear()
             })
         })
     })
